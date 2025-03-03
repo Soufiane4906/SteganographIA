@@ -1,13 +1,11 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
-
 const api = axios.create({
-  baseURL: API_URL,
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
+  baseURL: 'http://localhost:5000',
+  withCredentials: true, // Send cookies with each request
 });
+
+
 
 export const uploadImage = async (formData: FormData, onProgress: (progressEvent: any) => void) => {
   return new Promise((resolve) => {
